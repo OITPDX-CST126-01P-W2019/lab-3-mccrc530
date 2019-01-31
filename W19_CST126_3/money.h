@@ -7,7 +7,9 @@ const int SMALL_NUMBER = 20;
 //  These functions are taking the style of the new cstring functions where you always pass in the size.
 //    They assume that the character arrays are AT_LEAST size big.  
 
-// uncomment each function and add it to your money.cpp.
+// Implement these functions one at a time in money.cpp.  When you turn on the tests (in W19_126_3.cpp)
+//  the functions will need to be there, otherwise you'll get a linker error.  
+//   IOW, don't turn on the test until you at least have a stub of the corresponding function.
 void remove_all_spaces(char * target, const char * source, int size);
 //  removes any and all spaces from the source and places the result in target using pointer arithmetic.
 
