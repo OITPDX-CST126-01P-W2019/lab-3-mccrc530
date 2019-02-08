@@ -8,7 +8,7 @@
 using namespace std;
 
 // change these preprocessor constants to 1 as you add each element.
-#define TEST_REMOVE_SPACE 0
+#define TEST_REMOVE_SPACE 1
 #define TEST_IS_MONEY 0
 #define TEST_ADD_DECIMAL 0
 

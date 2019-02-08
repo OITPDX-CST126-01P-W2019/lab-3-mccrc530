@@ -1,6 +1,6 @@
 ## CST 126 - CST126_3 W19
 
-**Class ID:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [replace with your id]
+**Class ID:** Rowan;
 
 **Unresolved Issues:**
 + [Replace this with any known issues.  If it works groovy say that]
