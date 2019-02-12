@@ -3,7 +3,8 @@
 **Class ID:** Rowan;
 
 **Unresolved Issues:**
-+ [Replace this with any known issues.  If it works groovy say that]
++ Modified test() at line 107 & 111, removed spaces at start and end of big numbers, add_decimal should only function as specified in test() with these changes,
+	otherwise pass string size 27 and will attempt to write beyond limits defined by MAX_NUMBERS
 
 **Notes:**
 

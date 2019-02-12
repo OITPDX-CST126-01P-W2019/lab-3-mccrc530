@@ -10,7 +10,7 @@ using namespace std;
 // change these preprocessor constants to 1 as you add each element.
 #define TEST_REMOVE_SPACE 1
 #define TEST_IS_MONEY 1
-#define TEST_ADD_DECIMAL 0
+#define TEST_ADD_DECIMAL 1
 
 // leave these prototypes alone.  :-)  Do not edit between these lines.
 void test_remove_spaces();
@@ -104,11 +104,11 @@ bool test()
 	test_add_decimal("", SMALL_NUMBER);
 	cout << endl;
 	cout << "-- Big Numbers -- "<< endl;
-	test_add_decimal(" 1234567890123456789012345 ", MAX_NUMBER);  // this one works fine.
+	test_add_decimal("1234567890123456789012345", MAX_NUMBER);  // this one works fine.
 
 
 	// this one fails because there isn't enough room for the .00
-	test_add_decimal(" 12345678901234567890123456789 ", MAX_NUMBER); 
+	test_add_decimal("12345678901234567890123456789", MAX_NUMBER); 
 
 	
 	

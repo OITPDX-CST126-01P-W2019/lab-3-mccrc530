@@ -44,6 +44,37 @@ bool is_money(const char * source, int size)
 //  Determines if the string in source is money and returns true if it is, false if it isn't.
 bool add_decimal(char * target, const char * source, int size) 
 {
-	return true;
+	bool isOK{true}, moreLeft{ true }, hasDecimal{ false };
+	int endPos{-1};
+
+	for (int i{}; i != size; i++)
+	{
+		if (moreLeft && *(source + i) == '\0')
+		{
+			moreLeft = false;
+			endPos = i;
+		}
+		if (*(source + i) == '.' )
+		{
+			 hasDecimal = true;
+		}
+
+		*(target + i) = *(source + i);
+	}
+
+	if (!hasDecimal && (endPos >= 0 && endPos + 3 < size))
+	{
+		*(target + endPos) = '.';
+		*(target + endPos + 1) = '0';
+		*(target + endPos + 2) = '0';
+		*(target + endPos + 3) = '\0';
+	}
+
+	if (!(endPos >= 0 && endPos + 3 < size))
+	{
+		isOK = false;
+	}
+
+	return isOK;
 }
 //  If source is money, add_decimal adds .00  to it if it doesn't already have a decimal.  Places result in target.
