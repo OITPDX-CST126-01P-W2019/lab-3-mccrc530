@@ -9,14 +9,17 @@
 //   IOW, don't turn on the test until you at least have a stub of the corresponding function.
 void remove_all_spaces(char * target, const char * source, int size) 
 {
-	int step{};
-	for (int i{}; i!= size; i++)
+	int stepOld{}, stepNew{};
+	while(*(source + stepOld) != '\0')
 	{
-		if (*(source + i) !=  ' ')
+		if (*(source + stepOld) !=  ' ')
 		{
-			*(target + step++) = *(source + i);
+			*(target + stepNew++) = *(source + stepOld);
 		}
+		stepOld++;
 	}
+
+	*(target + stepNew) = *(source + stepOld);
 }
 //  removes any and all spaces from the source and places the result in target using pointer arithmetic.
 
@@ -44,35 +47,39 @@ bool is_money(const char * source, int size)
 //  Determines if the string in source is money and returns true if it is, false if it isn't.
 bool add_decimal(char * target, const char * source, int size) 
 {
-	bool isOK{true}, moreLeft{ true }, hasDecimal{ false };
-	int endPos{-1};
+	remove_all_spaces(target, source, size);
+	bool isOK{ is_money(target, size) };
+	
+	if (isOK) {
+		bool moreLeft{ true }, hasDecimal{ false };
+		int endPos{ -1 };
+		int i{ 0 };
 
-	for (int i{}; i != size; i++)
-	{
-		if (moreLeft && *(source + i) == '\0')
+		for (int i{}; i != size; i++)
 		{
-			moreLeft = false;
-			endPos = i;
+			if (moreLeft && *(target + i) == '\0')
+			{
+				moreLeft = false;
+				endPos = i;
+			}
+			if (*(target + i) == '.')
+			{
+				hasDecimal = true;
+			}
 		}
-		if (*(source + i) == '.' )
+
+		if (!hasDecimal && (endPos >= 0 && (endPos + 3 < size)))
 		{
-			 hasDecimal = true;
+			*(target + endPos) = '.';
+			*(target + endPos + 1) = '0';
+			*(target + endPos + 2) = '0';
+			*(target + endPos + 3) = '\0';
 		}
 
-		*(target + i) = *(source + i);
-	}
-
-	if (!hasDecimal && (endPos >= 0 && endPos + 3 < size))
-	{
-		*(target + endPos) = '.';
-		*(target + endPos + 1) = '0';
-		*(target + endPos + 2) = '0';
-		*(target + endPos + 3) = '\0';
-	}
-
-	if (!(endPos >= 0 && endPos + 3 < size))
-	{
-		isOK = false;
+		if (!(endPos >= 0 && endPos + 3 < size))
+		{
+			isOK = false;
+		}
 	}
 
 	return isOK;

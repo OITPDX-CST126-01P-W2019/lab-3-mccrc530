@@ -104,11 +104,11 @@ bool test()
 	test_add_decimal("", SMALL_NUMBER);
 	cout << endl;
 	cout << "-- Big Numbers -- "<< endl;
-	test_add_decimal("1234567890123456789012345", MAX_NUMBER);  // this one works fine.
+	test_add_decimal(" 1234567890123456789012345 ", MAX_NUMBER);  // this one works fine.
 
 
 	// this one fails because there isn't enough room for the .00
-	test_add_decimal("12345678901234567890123456789", MAX_NUMBER); 
+	test_add_decimal(" 12345678901234567890123456789 ", MAX_NUMBER); 
 
 	
 	
